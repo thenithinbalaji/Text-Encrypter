@@ -2,7 +2,7 @@
 This program uses symmetric ASCII encryption technique and file format encryption technique to encrypt the user data.
 
 # Languge 
-This commad line app was made completely in c++ because of the versatile and light nature of c++. The appropriate standard libraries were used in this app.
+This command line app was made completely in c++ because of the versatile and light nature of c++. The appropriate standard libraries were used in this app.
 
 # Usage
 After running the code, the user gets a prompt to choose   
