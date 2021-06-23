@@ -13,9 +13,6 @@ While Decrypting, the filename.en file is chosen and the data inside it is decry
 filename.txt    
 filename.en
 
-# Why is Encryption Important? 
-In this digital era, information is often challenging to protect. Privacy has certainly become a myth these days. So, the data is often encrypted to prevent leaks and unwanted access to them. The encryption is done by using complex algorithms to encrypt the file and properly protecting the KEY to decrypt the file back to a readable format. 
-
 # Standard Libraries used
 iostream.h   
 fstream.h   
