@@ -13,13 +13,3 @@ While Decrypting, the filename.en file is chosen and the data inside it is decry
 filename.txt    
 filename.en
 
-<details>
-<summary><b>Standard Libraries used</b></summary>
-iostream.h<br>    
-fstream.h<br>    
-process.h<br>     
-string.h<br>
-stdlib.h<br>
-stdio.h<br>
-conio.h<br>
-</details>
