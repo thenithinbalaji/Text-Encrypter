@@ -10,7 +10,7 @@ technique and [File Format Encryption](https://github.com/thenithinbalaji/Text-E
 + When the Encryption option is chosen, the user is asked to enter the filename. 
    + After the file is chosen, the app uses its in-built algorithm to encrypt the file and stores it in filename.en format. 
    + The filename.en is completely unreadable by any software except this file encryptor program. 
-+ Similarly, while decrypting, the filename.en file is chosen and the data inside it is decrypted back to machine-readable format. 
++ Similarly, while decrypting, the filename.en file is chosen and the data inside it is decrypted back totext format. 
  
 ## File Formats
 filename.txt    
