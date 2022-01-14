@@ -3,7 +3,7 @@
 Text Encrypter CLUI made with C++        
 Uses [Symmetric](https://en.wikipedia.org/wiki/Symmetric-key_algorithm) 
 [ASCII Encryption](https://www.google.com/search?q=ASCII+Encryption&rlz=1C1JJTC_enIN929IN929&sourceid=chrome&ie=UTF-8)
-technique and [File Format Encryption](#) Technique to encrypt the user data.
+technique and [File Format Encryption](https://github.com/thenithinbalaji/Text-Encrypter/blob/main/README.md#file-formats) Technique to encrypt the user data.
 
 ## Usage
 + Download and Run [text-encrypter.cpp](text-encrypter.cpp)
