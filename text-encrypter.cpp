@@ -100,6 +100,7 @@ class encrypto
     choice();
    }
 
+  
     void choice()
     {
         cout<<endl<<endl;
@@ -123,8 +124,8 @@ class encrypto
           start();
         }
      }
-
 };
+
 
 void main()
 {
