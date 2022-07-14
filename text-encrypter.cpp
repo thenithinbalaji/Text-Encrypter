@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 class encrypto
 {
 
