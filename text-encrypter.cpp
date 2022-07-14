@@ -1,11 +1,4 @@
-#include<iostream.h>
-#include<fstream.h>
-#include<process.h>
-#include<string.h>
-#include<stdlib.h>
-#include<stdio.h>
-#include<conio.h>
-
+#include<bits/stdc++.h>
 
 class encrypto
 {
