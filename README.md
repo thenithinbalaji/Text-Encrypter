@@ -13,6 +13,6 @@ technique and [File Format Encryption](https://github.com/thenithinbalaji/Text-E
 + Similarly, while decrypting, the filename.en file is chosen and the data inside it is decrypted back to text format. 
  
 ## File Formats
-filename.txt    
-filename.en
+`filename.txt`    
+`filename.en`
 
