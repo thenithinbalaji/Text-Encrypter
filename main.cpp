@@ -1,135 +1,132 @@
-#include<bits/stdc++.h>
-class encrypto
-{
+#include<iostream>
+#include<fstream>
+#include<stdio.h> 
+using namespace std;
 
-  private:
-  char ch, filename[20], enfilename[20], defilename[20];
-  int opt;
+void starttext(){
+  cout<<R"(
+     /$$$$$$$$                                                     /$$                        
+    | $$_____/                                                    | $$                        
+    | $$       /$$$$$$$   /$$$$$$$  /$$$$$$  /$$   /$$  /$$$$$$  /$$$$$$    /$$$$$$   /$$$$$$ 
+    | $$$$$   | $$__  $$ /$$_____/ /$$__  $$| $$  | $$ /$$__  $$|_  $$_/   /$$__  $$ /$$__  $$
+    | $$__/   | $$  \ $$| $$      | $$  \__/| $$  | $$| $$  \ $$  | $$    | $$  \ $$| $$  \__/
+    | $$      | $$  | $$| $$      | $$      | $$  | $$| $$  | $$  | $$ /$$| $$  | $$| $$      
+    | $$$$$$$$| $$  | $$|  $$$$$$$| $$      |  $$$$$$$| $$$$$$$/  |  $$$$/|  $$$$$$/| $$      
+    |________/|__/  |__/ \_______/|__/       \____  $$| $$____/    \___/   \______/ |__/      
+                                             /$$  | $$| $$                                    
+                                            |  $$$$$$/| $$                                    
+                                             \______/ |__/)";                             
+
+
+  cout<<endl<<endl<<endl;
+
+  cout<<"\nQuick note";
+  cout<<"\n----------";
+  cout<<"\n+ You will be asked for file name and file extension";
+  cout<<"\n+ Enter txt in file extension to encrypt the .txt file";
+  cout<<"\n+ Enter en  in file extension to decrypt the .en  file";
+  cout<<"\n+ <filename>.txt file will be encrypted, <filename>.en file will be decrypted";
+  cout<<"\n+ The files must be present in the root of the code or exe";
+
+  cout<<endl<<endl;
   
-  void decrypt()
-  {
-    cout<<endl<<"\nEnter the file name that has to decryted."
-    <<"Note that the file should be in same folder containing the APP\n"
-    <<"\n EXAMPLE<><><> If the file name is test.en, enter as test\n"
-    <<" ENTER<><><> ";
-     
-    cin>>filename;
-    strcpy(defilename, filename);
-    strcat(filename,".en");
-    strcat(defilename,".txt");
+}
 
-    ifstream fin (filename);
+void encrypt(string filename){
 
-    if(fin.fail()){ cout<<"\n FILE DOES'NT EXIST"; getch(); start();}
-    ofstream fout(defilename);
-
-    while(!fin.eof())
-    {
-      fin.get(ch);
-      fout<<(char)(ch-9);
-     }
-
-      cout<<"\n DECRYPTED SUCCESSFULLY";
-      getch();
-      remove(filename);
-      fin.close();
-      fout.close();
-      start();
-    }
-
-    void encrypt()
-    {
-      cout<<endl<<"\nEnter the text file name."
-      <<"Note that the file should be in same folder containing the APP\n"
-      <<"\n EXAMPLE<><><> If the file name is test.txt, enter as test\n"
-      <<" ENTER<><><> ";
-      cin>>filename;
-
-      strcpy(enfilename, filename);
-      strcat(filename,".txt");
-      strcat(enfilename,".en");
-      ifstream fin (filename);
-      
-      if(fin.fail()){ cout<<"\n\n FILE DOES'NT EXIST"; getch(); start();}
-      ofstream fout(enfilename);
-
-      while(!fin.eof())        
-      {
-          fin.get(ch);
-          fout<<(char)(ch+9);
-      }
-
-      cout<<"\n ENCRYPTED SUCCESSFULLY";
-      getch();
-      remove(filename);
-      fin.close();
-      fout.close();
-      start();
-    }
-
-  public:
-  encrypto()
-  {
-    opt=3;
-    strcpy(filename,NULL);
-    strcpy(enfilename,NULL);
-    strcpy(defilename,NULL);
+  ifstream fin;
+  fin.open(filename + ".txt");
+  
+  if(fin.fail()){ 
+    cout<<"\nFATAL ERROR 02 := Unknown file `"<<filename<<".txt`\nFile doesn't exist. Read Quick Note!!";
   }
 
-  void start()
-  {
-    clrscr();
-    textcolor(YELLOW);
+  else{
+    ofstream fout;
+    fout.open(filename + ".en");
+
+    char ch;
+    while(!fin.eof()){
+      fin.get(ch);
+      fout<<(char)(ch+69);
+    }
+
+    cout<<"\nFile ENCRYPTED successfully";
+
+    filename += ".txt";
+    const char *charfilename = &filename[0];
     
-    cout<<"\t\t\t\t";
-    cprintf("WELCOME TO ENCRYPTO");
+    fin.close();
+    fout.close();
     
-    cout<<"\n\t\t";
-    cprintf("ALL RIGHTS RESERVED ");
-    cprintf("DEVELOPED BY NITHIN");
+    if( remove(charfilename) != 0 )
+    perror("\nError deleting the .txt file");
+    else
+    puts("\n.txt file successfully deleted\n.en file created" );
+
+  }
+
+}
+
+ void decrypt(string filename){
+
+  ifstream fin;
+  fin.open(filename + ".en");
+
+  if(fin.fail()){ 
+    cout<<"\nFATAL ERROR 02 := Unknown file `"<<filename<<".en`\nFile doesn't exist. Read Quick Note!!";
+  }
+
+  else{
+    ofstream fout(filename + ".txt");
+
+    char ch;
+    while(!fin.eof()){
+      fin.get(ch);
+      fout<<(char)(ch-69);
+    }
+
+    cout<<"\nFile DECRYPTED successfully";
     
-    cout<<"\n\n";
-    textcolor(GREEN);
-    cprintf(" NOTE <><><>");
+    filename += ".en";
+    const char *charfilename = &filename[0];
+
+    fin.close();
+    fout.close();
     
-    cout<<" This is a text file encrypter\n"
-    <<" \t\t\t The Encrypted file is stored as <filename>.en"<< endl;
-    cprintf(" SUPPORTED FORMATS <><><>");
-    cout<<" *.txt TYPE FILES"<<endl;
-    
-    choice();
-   }
+    if( remove(charfilename) != 0 )
+    perror("\nError deleting the .en file");
+    else
+    puts("\n.en file successfully deleted\n.txt file created" );
 
-  
-    void choice()
-    {
-        cout<<endl<<endl;
-        cprintf("PRESS:");
+  }
 
-      cout<<"\n <><><> 1 for Encrypting\n <><><> 2 for Decrypting\n <><><> 3 for exit \n";
-      textcolor(LIGHTRED);
-      cprintf("<><><> Enter::");
+}
 
-      textcolor(WHITE);
-      cin>>opt;
+int main(){
 
+  begin:
+    cout << "\033[2J\033[1;1H";
+    starttext();
 
-      if(opt==1) encrypt();
-      else if(opt==2) decrypt();
-      else if(opt==3) { cout<<"\nEXITING ENCRYTO PRESS ANY KEY TO CONTINUE";getch();exit(0);}
-      else 
-        { 
-          cout<<"\nINVALID CHOICE ENTER AGAIN"; 
-          getch(); 
-          start();
-        }
-     }
-};
+    string filename;
+    cout<<"\nEnter file name:: ";
+    cin>>filename;
 
+    string fileext;
+    cout<<"Enter file extension:: ";
+    cin>>fileext;
 
-void main()
-{
-  encrypto en;
-  en.start();
-  getch();
+    if(fileext == "txt") encrypt(filename);
+    else if(fileext == "en") decrypt(filename);
+    else cout<<"\nFATAL ERROR 01 := Unsupported file extension `."<<fileext<<"`\nOnly txt and en are supported. Read Quick Note!!";
+
+    char ch;
+    cout<<"\n\n\nEnter q to exit, any other character to restart:: ";
+    cin>>ch;
+
+    if(ch == 'q');
+    else goto begin;
+
+  return 0;
 }
