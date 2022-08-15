@@ -29,11 +29,9 @@ void starttext(){
   cout<<"\n+ The files must be present in the root of the code or exe";
 
   cout<<endl<<endl;
-  
 }
 
 void encrypt(string filename){
-
   ifstream fin;
   fin.open(filename + ".txt");
   
@@ -63,13 +61,10 @@ void encrypt(string filename){
     perror("\nError deleting the .txt file");
     else
     puts("\n.txt file successfully deleted\n.en file created" );
-
   }
-
 }
 
  void decrypt(string filename){
-
   ifstream fin;
   fin.open(filename + ".en");
 
@@ -98,13 +93,10 @@ void encrypt(string filename){
     perror("\nError deleting the .en file");
     else
     puts("\n.en file successfully deleted\n.txt file created" );
-
   }
-
 }
 
 int main(){
-
   begin:
     cout << "\033[2J\033[1;1H";
     starttext();
